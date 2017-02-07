@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>继承的几种方法 | Hexo</title>
+  <meta name="author" content="John Doe" />
+
+  
+  <meta name="description" content="原型继承
+继承的是父类的公有和私有的，作为自己公有的
+实现方式，子类的原型指向父类的实例：Son.prototype = new Person();123456789101112function Person(name)&amp;#123;    this.name = name;&amp;#125;Person." />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="继承的几种方法" />
+  <meta property="og:site_name" content="Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-02-07T09:21:55.961Z"><a href="/2017/02/07/javascript/继承/">2017-02-07</a></time>
+      
+      
+  
+    <h1 class="title">继承的几种方法</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><ul>
+<li>继承的是父类的公有和私有的，作为自己公有的</li>
+<li>实现方式，子类的原型指向父类的实例：Son.prototype = new Person();<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Person(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.getName = function()&#123;</div><div class="line">    return this.name;</div><div class="line">&#125;</div><div class="line">function Child(age)&#123;</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line">Child.prototype = new Person(&apos;gg&apos;);</div><div class="line">var child = new Child(22);</div><div class="line">console.log(child.getName(),child.age,child.name);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="this继承"><a href="#this继承" class="headerlink" title="this继承"></a>this继承</h3><ul>
+<li>继承的是父类的私有的属性和方法，作为自己私有的</li>
+<li>父类当作一个函数在子类中运行，<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    this.name = &apos;a&apos;;</div><div class="line">    this.haha = function()&#123;</div><div class="line">        console.log(&apos;private haha&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Child()&#123;</div><div class="line">    Person.apply(this,arguments);</div><div class="line">&#125;</div><div class="line">var child = new Child();</div><div class="line">child.name; //a</div><div class="line">child.haha();//private haha</div><div class="line">child.sayName()//错误</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="冒充对象继承"><a href="#冒充对象继承" class="headerlink" title="冒充对象继承"></a>冒充对象继承</h3><ul>
+<li>父类中私有+共有的作为自己私有的属性和方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">function Child()&#123;</div><div class="line">    var child = new Parent();</div><div class="line">    for(var key in child)&#123;</div><div class="line">        child.hasOwnProperty(key)&#123;</div><div class="line">            this[key]=child[key];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    child = null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><ul>
+<li>继承原型上的公有的属性和方法</li>
+<li>继承方式:子类<strong>proto</strong> = Parent.prototype;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Child.prototype.__proto__ = Parent.prototype;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="es6"><a href="#es6" class="headerlink" title="es6"></a>es6</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Child.prototype = Object.create(Parent.prototype);</div><div class="line">Object.setPrototypeOf(child.prototype,Parent.prototype)</div><div class="line">==〉utils.inherits(Child,Parent)</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/02/07/javascript/继承/">继承的几种方法</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/05/webpack/">webpack配置</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/04/es6/">es6基础</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/react/">react笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/Promise/">promise</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2017 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

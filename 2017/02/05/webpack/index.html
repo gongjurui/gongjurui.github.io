@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>webpack配置 | Hexo</title>
+  <meta name="author" content="John Doe" />
+
+  
+  <meta name="description" content="webpack.config.js
+文件package.json
+123456&amp;#123;    &amp;quot;script&amp;quot;: &amp;#123;        &amp;quot;dev&amp;quot;: &amp;quot;webpack-dev-server --progress --profile --co" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="webpack配置" />
+  <meta property="og:site_name" content="Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-02-05T02:18:21.774Z"><a href="/2017/02/05/webpack/">2017-02-05</a></time>
+      
+      
+  
+    <h1 class="title">webpack配置</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h2><ul>
+<li><p>文件package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;script&quot;: &#123;</div><div class="line">        &quot;dev&quot;: &quot;webpack-dev-server --progress --profile --colors --hot --inline&quot;,</div><div class="line">        &quot;build&quot;:&quot;webpack --progress --profile --colors&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var webpack = require(&apos;webpack&apos;);</div><div class="line">var HtmlwebpackPlugin = require(&apos;html-webpack-plugin&apos;);</div><div class="line">var OpenBrowswerWebpackPulgin = require(&apos;open-browser-webpack-plugin&apos;);</div><div class="line">var ROOT_PATH = path.resolve(__dirname);</div><div class="line">var APP_PATH = path.resolve(ROOT_PATH, &apos;app&apos;);</div><div class="line">var BUILD_PATH = path.resolve(ROOT_PATH, &apos;build&apos;);</div><div class="line">var TEM_PATH = path.resolve(ROOT_PATH, &apos;templates&apos;);</div><div class="line"></div><div class="line">module.exports= &#123;</div><div class="line">  entry: &#123;</div><div class="line">    app: path.resolve(APP_PATH, &apos;index.jsx&apos;),</div><div class="line">    mobile: path.resolve(APP_PATH, &apos;mobile.jsx&apos;),</div><div class="line">    vendors: [&apos;jquery&apos;, &apos;moment&apos;]</div><div class="line">  &#125;,</div><div class="line">  output: &#123;</div><div class="line">    path: BUILD_PATH,</div><div class="line">    filename: &apos;[name].js&apos;</div><div class="line">  &#125;,</div><div class="line">  resolve: &#123;</div><div class="line">    extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]</div><div class="line">  &#125;,</div><div class="line">  //启动dev source map，出错以后就会采用source-map的形式直接显示你出错代码的位置。</div><div class="line">  devtool: &apos;eval-source-map&apos;,</div><div class="line">  //enable dev server</div><div class="line">  devServer: &#123;</div><div class="line">    contentBase:BUILD_PATH,</div><div class="line">    historyApiFallback: true,</div><div class="line">    hot: true,</div><div class="line">    inline: true,</div><div class="line">    progress: true,</div><div class="line">    //只要配置dev server map这个参数就可以了</div><div class="line">    proxy:&#123;</div><div class="line">      &apos;/api/*&apos;:&#123;</div><div class="line">        target: &apos;http://localhost:8080&apos;,</div><div class="line">        secure: false</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  //babel重要的loader在这里</div><div class="line">  module: &#123;</div><div class="line">    //loader前执行处理，这样每次npm run start的时候就可以看到jshint的提示信息</div><div class="line">    preLoaders: [</div><div class="line">       &#123;</div><div class="line">         test: /\.jsx?$/,</div><div class="line">         include: APP_PATH,</div><div class="line">         loader: &quot;jshint-loader&quot;</div><div class="line">       &#125;</div><div class="line">     ],</div><div class="line">    loaders: [</div><div class="line">      &#123;</div><div class="line">        test: /\.jsx?$/,</div><div class="line">        loader: &apos;babel&apos;,</div><div class="line">        include: APP_PATH,</div><div class="line">        query: &#123;</div><div class="line">          //添加两个presents 使用这两种presets处理js或者jsx文件</div><div class="line">          presets: [&apos;es2015&apos;, &apos;react&apos;]</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: /\.scss$/,</div><div class="line">        loaders: [&apos;style&apos;, &apos;css&apos;, &apos;sass&apos;]</div><div class="line">      &#125;,</div><div class="line">      &#123;//该方法可以省去.babelrc文件</div><div class="line">        test: /\.js$/,</div><div class="line">        loader: &apos;babel?presets[]=es2015&amp;presets[]=react&apos;,</div><div class="line">        exclude: /node_modules/</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: /\.css$/,</div><div class="line">        loader: &apos;style!css&apos;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test:/\.(png|jpg|gif|jpeg|gif)$/,</div><div class="line">        loader: &apos;url-loader&apos;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        test: /\.(svg|ttf|woff|woff2|eot)/,</div><div class="line">        loader: &apos;url&apos;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  //配置jshint的选项，支持es6的校验</div><div class="line">   // any jshint option http://www.jshint.com/docs/options/</div><div class="line">   jshint: &#123;</div><div class="line">     &quot;esnext&quot;: true</div><div class="line">   &#125;,</div><div class="line">  plugins: [</div><div class="line">    new OpenBrowswerWebpackPulgin(&#123;</div><div class="line">        url:&apos;http://localhost:8080&apos;</div><div class="line">    &#125;),</div><div class="line">    new webpack.HotModuleReplacementPlugin(),</div><div class="line">    //这个使用uglifyJs压缩你的js代码</div><div class="line">    new webpack.optimize.UglifyJsPlugin(&#123;minimize: true&#125;),</div><div class="line">    new HtmlwebpackPlugin(&#123;</div><div class="line">      title: &apos;My first react app&apos;,</div><div class="line">      template: path.resolve(TEM_PATH, &apos;index.html&apos;),</div><div class="line">      filename: &apos;index.html&apos;,</div><div class="line">      chunks: [&apos;app&apos;, &apos;vendors&apos;],</div><div class="line">      inject: &apos;body&apos;</div><div class="line">    &#125;),</div><div class="line">    new HtmlwebpackPlugin(&#123;</div><div class="line">      title: &apos;Hello Mobile app&apos;,</div><div class="line">      template: path.resolve(TEM_PATH, &apos;mobile.html&apos;),</div><div class="line">      filename: &apos;mobile.html&apos;</div><div class="line">    &#125;),</div><div class="line">    //把入口文件里面的数组打包成verdors.js</div><div class="line">    new webpack.optimize.CommonsChunkPlugin(&apos;vendors&apos;, &apos;vendors.js&apos;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/02/07/javascript/继承/">继承的几种方法</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/05/webpack/">webpack配置</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/04/es6/">es6基础</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/react/">react笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/Promise/">promise</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2017 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

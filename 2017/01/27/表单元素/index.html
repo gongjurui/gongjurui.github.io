@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>表单元素总结 | Hexo</title>
+  <meta name="author" content="John Doe" />
+
+  
+  <meta name="description" content="表单元素样式
+outline：none; 点击input，textarea等外层没有线
+apperance:none; 失去表单元素原有的外观,例子：
+12345678910111213141516div.ui-select select&amp;#123;    -webkit-appearance:no" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="表单元素总结" />
+  <meta property="og:site_name" content="Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-27T07:36:43.060Z"><a href="/2017/01/27/表单元素/">2017-01-27</a></time>
+      
+      
+  
+    <h1 class="title">表单元素总结</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="表单元素样式"><a href="#表单元素样式" class="headerlink" title="表单元素样式"></a>表单元素样式</h2><ul>
+<li>outline：none; 点击input，textarea等外层没有线</li>
+<li><p>apperance:none; 失去表单元素原有的外观,例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">div.ui-select select&#123;</div><div class="line">    -webkit-appearance:none;</div><div class="line">    border: none;</div><div class="line">    padding-right: 12px;</div><div class="line"> </div><div class="line">&#125;</div><div class="line">div.ui-select:after&#123;</div><div class="line">    position: absolute;</div><div class="line">    width: 0;</div><div class="line">    height: 0;</div><div class="line">    content: &apos;&apos;;</div><div class="line">    border: 6px solid transparent;</div><div class="line">    border-top: 6px solid red;</div><div class="line">    color: red;</div><div class="line">    pointer-events:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>单行省略号，多行省略号（css3属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.single-line&#123;</div><div class="line">    display: block;</div><div class="line">    overflow:hidden;</div><div class="line">    white-space: nowrap;</div><div class="line">    text-overflow: ellipsis;</div><div class="line">&#125;</div><div class="line">.double-ling&#123;</div><div class="line">    display:-webkit-box;</div><div class="line">    -webkit-box-orient: vetical;</div><div class="line">    overflow:hidden;</div><div class="line">    text-overflow:ellipsis;</div><div class="line">    -webkit-line-clamp: 2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>input:before input:checked:after</p>
+</li>
+</ul>
+<h2 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h2><ul>
+<li>button点击事件，可将事件绑定到form上面onSubmit()</li>
+<li>input,select-option标签绑定onchange事件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">input.on(&apos;input&apos;,function()&#123;&#125;&#125;)</div><div class="line">select.onchange=function(e)&#123;</div><div class="line">    e.target.value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/02/07/javascript/继承/">继承的几种方法</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/05/webpack/">webpack配置</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/04/es6/">es6基础</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/react/">react笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/Promise/">promise</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2017 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

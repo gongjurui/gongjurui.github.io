@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>node标配 | Hexo</title>
+  <meta name="author" content="John Doe" />
+
+  
+  <meta name="description" content="读取文件getData，setData123456789101112function getData(fn) &amp;#123;    fs.readFile(&amp;apos;./book.json&amp;apos;,&amp;apos;utf8&amp;apos;,function (err,data) &amp;#123;      " />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="node标配" />
+  <meta property="og:site_name" content="Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-02-03T01:31:00.179Z"><a href="/2017/02/03/node/">2017-02-03</a></time>
+      
+      
+  
+    <h1 class="title">node标配</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="读取文件getData，setData"><a href="#读取文件getData，setData" class="headerlink" title="读取文件getData，setData"></a>读取文件getData，setData</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function getData(fn) &#123;</div><div class="line">    fs.readFile(&apos;./book.json&apos;,&apos;utf8&apos;,function (err,data) &#123;</div><div class="line">        if(err)&#123;</div><div class="line">            fn([])</div><div class="line">        &#125;else&#123;</div><div class="line">            fn(JSON.parse(data));</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">function setData(data, cb) &#123;</div><div class="line">    fs.writeFile(&apos;./book.json&apos;,JSON.stringify(data),cb);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="事件环：当前要做的事情，一会要做的事情（异步）"><a href="#事件环：当前要做的事情，一会要做的事情（异步）" class="headerlink" title="事件环：当前要做的事情，一会要做的事情（异步）"></a>事件环：当前要做的事情，一会要做的事情（异步）</h2><ul>
+<li>setImmediate一会要做的，立即  2,</li>
+<li>setTimeout  3,</li>
+<li>process.nextTick  1,<h2 id="global对象"><a href="#global对象" class="headerlink" title="global对象"></a>global对象</h2></li>
+<li>global</li>
+<li><p>process进程</p>
+<ul>
+<li>process.nextTick当前队列的底部</li>
+<li>process.cwd()当前工作目录,可以改变的</li>
+<li>process.chdir()改变目录</li>
+<li>process.pid 进程号</li>
+<li>process.exit() 退出当前进程</li>
+<li>process.kill() 关闭进程<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">__dirname不可以改变的</div><div class="line">__filename</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>clearInterval/setInterval</p>
+</li>
+<li>clearTimeout/setTimeout</li>
+<li>clearImmediate/setImmediate第二个队列的立即</li>
+<li>console log/warn/error/info/time/timeEnd</li>
+<li>Buffer<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2></li>
+<li>模块的导入导出<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">module.exports = obj 一次只能导出一个变量</div><div class="line">exports.name/obj/age...可以导出多次</div><div class="line">require()</div><div class="line">require().name/obj/age...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><ul>
+<li>on订阅事件，同addListener</li>
+<li>once一次</li>
+<li>removeListener</li>
+<li>removeAllListener</li>
+<li>emit执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var EventsEmitter = require(&apos;events&apos;);</div><div class="line">var util = require(&apos;util&apos;);</div><div class="line">function Man()&#123;&#125;</div><div class="line">util.inherits(Man,EventsEmitter);</div><div class="line">var man = new Man();</div><div class="line">man.on/emit/once...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="url路径req-url"><a href="#url路径req-url" class="headerlink" title="url路径req.url"></a>url路径req.url</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">protocol: https:协议</div><div class="line">slashes：true 是否有/</div><div class="line">auth：‘username：password’权限</div><div class="line">host：‘www.baidu.com:9090’主机</div><div class="line">hostname: &apos;www.baidu.com&apos;主机名</div><div class="line">port：9090 端口号</div><div class="line">hash：‘#1’ hash值</div><div class="line"></div><div class="line">path:&apos;/s?wd=Content-Type&amp;rsv_spt=1&amp;rsv_iqid=0xf318b7e80001e728&amp;issp=1&amp;f=8&amp;rsv_bp=0&amp;rsv_idx=2&amp;ie=utf-8&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_n=2&amp;rsv_sug3=1&apos;</div><div class="line">pathname:&apos;/s&apos;,</div><div class="line">search：‘?wd=content&amp;cb=cf...’,</div><div class="line">query: 查询对象</div><div class="line">&#123;</div><div class="line">   wd:&apos;Content-Type&apos;,</div><div class="line">   ie: &apos;utf-8&apos;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="querystring：解析字符串类似join-split"><a href="#querystring：解析字符串类似join-split" class="headerlink" title="querystring：解析字符串类似join split.."></a>querystring：解析字符串类似join split..</h2><ul>
+<li><p>querystring.parse()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&apos;name=ha; age=22&apos;,&apos;; &apos;)</div><div class="line">-----&gt;&#123;name:&apos;ha&apos;,age:22&#125;</div><div class="line">querystring.parse(&apos;callback=ha&amp;age=22&apos;,&apos;&amp;&apos;,&apos;=&apos;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>querystring.stringify()</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2017/02/07/javascript/继承/">继承的几种方法</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/05/webpack/">webpack配置</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/04/es6/">es6基础</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/react/">react笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2017/02/03/Promise/">promise</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2017 John Doe
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
